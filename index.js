@@ -270,6 +270,24 @@ const slideSketches = {
       p.rect(0, 0, 50, 50)
       p.pop()
     }
+  },
+  32: function(p) {
+    p.fill(231, 75, 60)
+    p.noStroke()
+    let numPoints = 20
+    let r = p.height * 0.125
+    p.translate(p.width / 2, p.height / 4)
+    for(let i = 0; i < numPoints; i += 1) {
+      let delta = p.map(i, 0, numPoints - 1, 0, p.TWO_PI)
+      p.ellipse(p.map(i, 0, numPoints - 1, -p.width * 0.25, p.width * 0.25), p.sin(delta + p.frameCount * 0.01) * r, 20, 20)
+    }
+
+    p.fill(52, 152, 219)
+    p.translate(0, p.height / 2)
+    for(let i = 0; i < numPoints; i += 1) {
+      let delta = p.map(i, 0, numPoints - 1, 0, p.TWO_PI)
+      p.ellipse(p.map(i, 0, numPoints - 1, -p.width * 0.25, p.width * 0.25), p.cos(delta + p.frameCount * 0.01) * r, 20, 20)
+    }
   }
 }
 
